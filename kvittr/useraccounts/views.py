@@ -18,3 +18,7 @@ def user_login(request):
             context['login_failed'] = True
     # request.method == 'GET':
     return render(request, 'useraccounts/login.html', context)
+
+def user_logout(request):
+    logout(request)
+    return redirect('frontpage')
