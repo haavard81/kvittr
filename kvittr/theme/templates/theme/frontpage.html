@@ -1,0 +1,39 @@
+{% extends 'theme/base.html' %}
+{% block subheader %}Kvittr{% endblock %}
+
+{% block subheader-buttons %}
+{% if user.is_anonymous %}
+
+	<!--Sign in modal-->
+	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm">			
+	  		<div class="modal-content">
+	    		<div class="modal-header">
+	    			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    			<h1 class="logo logo-signin">Kvittr</h1>
+	    		</div>	
+	    		<div class="modal-body">  			
+				    <!--Form is fetched from useraccounts/login with fetchForm.js-->
+			    </div>	
+	    	</div>
+	  	</div>
+	</div>
+
+	<!--Sign in and register buttons-->
+	<ul class="list-inline">
+		<li><button type="button" id="fetch-signin-form" class="btn btn-lg btn-default" data-toggle="modal" data-target=".bs-example-modal-sm"><span class="glyphicon glyphicon-lock"></span> Sign in</button></li>
+	  	<li>or</li>
+	  	<li><a href="{% url 'user_register' %}" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-pencil"></span> Register</a></li>
+	</ul>
+	{% else %}
+	<ul class="list-inline">
+		<li><a href="{% url 'user_logout' %}" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+	</ul>
+{% endif %}
+{% endblock %}
+
+{% block pagecontent %}
+	<p class="lead">
+	    Welcome to kvittr school project. View repository on <a href="#">Github</a>
+	</p>
+{% endblock %}
