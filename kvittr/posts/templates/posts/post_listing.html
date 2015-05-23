@@ -2,6 +2,38 @@
 {% block posts_listing_is_active %}active{% endblock%}
 {% block subheader %}Posts{% endblock %}
 {% block pagecontent %}
+
+    {% if user.is_anonymous %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="alert alert-info" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p>You must <a href="{% url 'user_login' %}">sing in</a> to post messages</p>
+            </div>
+        </div>
+    </div>    
+    {% else %}
+    <div id="add-post" class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h3>Add a post as: <a href="">{{ user.username }}</a></h3> 
+            <form class="form-horizontal" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="col-sm-12">
+                       <textarea class="form-control" rows="3" name="new_post" placeholder="Whats on your mind?" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-lg btn-primary">Save post</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endif %}
     
     <div class="row">
     {% for post in posts %}
