@@ -1,0 +1,45 @@
+{% extends 'theme/base.html' %}
+{% block subheader %}Post details{% endblock %}
+{% block pagecontent %}
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Message</th>
+                        <th>Created by</th>
+                        <th>Date and time</th>
+                        <th>Number of likes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ post.id }}</td>
+                        <td>{{ post.message }}</td>
+                        <td>{{ post.created_by }}</td>
+                        <td>{{ post.created_datetime }}</td>
+                        <td>
+                            <a href="" class="likes_link btn btn-sm btn-primary" data-postid="{{ post.id }}">
+                                <span class="glyphicon glyphicon-thumbs-up"></span> <span class="badge" id="id-likes-{{ post.id }}">{{ post.likes }}</span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
