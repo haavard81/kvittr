@@ -26,3 +26,18 @@ a:focus{
   color: #47AB69;
 }
 
+.btn{border-radius: 25px;}
+
+.btn-primary{
+  background-color: #67CA87;
+  border-color: #47AB69;
+}
+
+.btn-primary:hover,
+.btn-primary:focus{
+  background-color: #47AB69;
+  border-color: #47AB69;
+}
+
+.btn-primary .badge{color: #47AB69;}
+
