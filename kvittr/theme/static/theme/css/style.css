@@ -105,3 +105,40 @@ a:focus{
   opacity: 0.8;
 }
 
+/****Header****/
+
+.jumbotron{
+    color: #ffffff;
+    text-align: center;
+    padding: 7% 0;
+    background: url(../media/kvittr_bg.jpg) no-repeat top center;
+    -webkit-background-size:cover;
+    -moz-background-size: cover;
+    -o-background-size:   cover;
+    background-size:    cover;    
+}
+
+.jumbotron h1{font-weight: 400;}
+
+@media screen and (min-width: 768px){
+  .jumbotron h1, .jumbotron .h1 {
+    font-size: 125px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .jumbotron h1, .jumbotron .h1 {
+    font-size: 75px;
+  }
+}
+
+.jumbotron ul.list-inline{
+  margin-top: 0px;
+}
+
+.jumbotron .modal h3{
+  margin-top: 0;
+  text-align: left;
+  color: #383838;
+}
+
