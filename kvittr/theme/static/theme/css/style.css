@@ -156,3 +156,21 @@ a:focus{
 .thumbnail:hover{
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
+
+.pager li{
+  border-color: #47AB69;
+  color: #47AB69;
+}
+
+.pager li a{
+  background-color: #67CA87;
+  color: #ffffff;
+}
+
+.pager li a:hover{
+  background-color: #47AB69;
+}
+
+.modal-header {
+  border-bottom: none;
+}
