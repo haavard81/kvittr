@@ -38,4 +38,16 @@ def user_register(request):
             user.set_password(request.POST.get('password'))
             user.save()
             context['user_saved_successfully'] = True
-    return render(request, 'useraccounts/register.html', context)    
+    return render(request, 'useraccounts/register.html', context)
+
+def user_edit(request):
+    context = {}
+    if request.method == 'POST':
+        user = request.user
+        user.first_name = request.POST.get('firstname')
+        user.last_name = request.POST.get('lastname')
+        user.email = request.POST.get('email')  
+        user.save(update_fields=["first_name", "last_name", "email"]) 
+        context['user_edited_successfully'] = True
+    return render(request, 'useraccounts/edit.html', context)
+        
