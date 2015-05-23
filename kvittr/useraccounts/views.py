@@ -16,9 +16,26 @@ def user_login(request):
         else:
             # render login again, but display error message
             context['login_failed'] = True
-    # request.method == 'GET':
     return render(request, 'useraccounts/login.html', context)
 
 def user_logout(request):
     logout(request)
     return redirect('frontpage')
+
+def user_register(request):
+    context = {}
+    if request.method == 'POST':
+        user = User()
+        user.first_name = request.POST.get('firstname')
+        user.last_name = request.POST.get('lastname')
+        if User.objects.filter(username=request.POST['username']).exists():#Check if username exists in db
+            context['username_exist'] = True
+        elif User.objects.filter(email=request.POST['email']).exists():#Check if email exists in db
+            context['email_exist'] = True
+        else:
+            user.username = request.POST.get('username')
+            user.email = request.POST.get('email')
+            user.set_password(request.POST.get('password'))
+            user.save()
+            context['user_saved_successfully'] = True
+    return render(request, 'useraccounts/register.html', context)    
