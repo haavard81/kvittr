@@ -34,10 +34,19 @@ def post_listing(request):
         }
     return render(request, 'posts/post_listing.html', context)
 
+
 def post_details(request, post_id):
     post = Post.objects.get(pk=post_id)
     posts = Post.objects.all()
     context = {'post': post}
-    return render(request, 'posts/post_details.html', context)  
+    return render(request, 'posts/post_details.html', context)    
 
-        
+
+@login_required
+def post_add_likes(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    post.likes = post.likes + 1
+    post.save()
+    data = {'likes_updated': post.likes}
+    return JsonResponse(data)
+    
