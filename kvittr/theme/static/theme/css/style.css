@@ -1,0 +1,28 @@
+
+/****Fonts****/
+
+body,html{font-family: 'Roboto', sans-serif;}
+
+body{background-color: #f8f8f8;}
+
+h1,h2,h3,h4{font-weight: 700;}
+
+.logo{font-family: 'Lobster', cursive;}
+
+.logo-signin{
+  text-align: center;
+  font-size: 90px!important;
+  color: #67CA87!important;
+}
+
+span.glyphicon{
+  margin-right: 3px;
+  font-size: 16px;
+}
+
+a{color: #67CA87;}
+a:hover,
+a:focus{
+  color: #47AB69;
+}
+
