@@ -33,3 +33,11 @@ def post_listing(request):
         'posts': posts,
         }
     return render(request, 'posts/post_listing.html', context)
+
+def post_details(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    posts = Post.objects.all()
+    context = {'post': post}
+    return render(request, 'posts/post_details.html', context)  
+
+        
