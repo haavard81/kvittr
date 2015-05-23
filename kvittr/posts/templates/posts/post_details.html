@@ -2,6 +2,17 @@
 {% block subheader %}Post details{% endblock %}
 {% block pagecontent %}
 
+    {% block facebook_metadata %}
+    <!--Facebook opengraph-->
+    <meta property="og:title" content="Kvittr post number:{{ post.id }}!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="kvittr.no" />
+    <meta property="og:description" content="{{ post.message }}" />
+    <meta property="og:url" content="http://kvittr.no/posts/{{ post.id }}" />
+    <meta property="og:image" content="http://kvittr.no/images/image.png" />
+    <meta property="og:image:secure_url" content="http://kvittr.no/images/image.png" />
+    {% endblock %}
+
     <div class="row">
         <div class="col-sm-12">
 
