@@ -1,3 +1,5 @@
+from django.http import Http404
+from django.shortcuts import render_to_response
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
@@ -36,9 +38,12 @@ def post_listing(request):
 
 
 def post_details(request, post_id):
-    post = Post.objects.get(pk=post_id)
-    posts = Post.objects.all()
-    context = {'post': post}
+    try:
+        post = Post.objects.get(pk=post_id)
+        posts = Post.objects.all()
+        context = {'post': post}
+    except Post.DoesNotExist:
+        raise Http404("Post does not exist")    
     return render(request, 'posts/post_details.html', context)    
 
 
