@@ -43,7 +43,7 @@ def post_details(request, post_id):
         posts = Post.objects.all()
         context = {'post': post}
     except Post.DoesNotExist:
-        raise Http404("Post does not exist")    
+        raise Http404("Post does not exist")
     return render(request, 'posts/post_details.html', context)    
 
 
